@@ -40,4 +40,8 @@ public class Rechteck {
         int tempHoehe = hoehe;
         hoehe = breite; breite = tempHoehe;
     }
+    public void um90GradDrehen(){
+        verschieben((breite/2 - hoehe/2), (-breite/2 + hoehe/2));
+        hoeheBreiteVertauschen();
+    }
 }
