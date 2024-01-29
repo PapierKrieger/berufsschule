@@ -7,5 +7,8 @@ public class ExpertenTest {
         Rechteck rechteck = new Rechteck(100, 100, "rot", 200, 50);
 
         leinwand.zeichne(rechteck);
+        leinwand.warte(500);
+        rechteck.um90GradDrehen();
+        leinwand.zeichne(rechteck);
     }
 }
