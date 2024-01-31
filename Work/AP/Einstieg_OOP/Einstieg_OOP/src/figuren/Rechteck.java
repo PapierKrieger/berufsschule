@@ -19,29 +19,70 @@ public class Rechteck {
         this.breite = breite;
         this.hoehe = hoehe;
     }
-    public void verschieben(int xRichtung, int yRichtung){
-        positionX += xRichtung;
-        positionY += yRichtung;
+
+
+    public void verschieben(int xRichtung, int yRichtung) {
+        positionX = positionX + xRichtung;
+        positionY = positionY + yRichtung;
     }
-    public double flaecheninhaltBerechnen(){
+
+    public double flaecheninhaltBerechnen() {
         return breite * hoehe;
     }
-    public void vergroessern(int faktor){
-        hoehe = hoehe * faktor;
-        breite = breite * faktor;
-    }
-    public double umfangBerechnen(){
-        return breite * 2 + hoehe * 2;
-    }
-    public boolean istQuadrat(){
-        return hoehe == breite;    //möglich, da "breite == hoehe" einen bool zurückgibt
-    }
     public void hoeheBreiteVertauschen(){
-        int tempHoehe = hoehe;
-        hoehe = breite; breite = tempHoehe;
+        int temp = breite;
+        breite = hoehe;
+        hoehe = temp;
     }
     public void um90GradDrehen(){
-        verschieben((breite/2 - hoehe/2), (-breite/2 + hoehe/2));
+        verschieben(breite/2 - hoehe/2, -breite/2 + hoehe/2);
         hoeheBreiteVertauschen();
     }
+
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
+    }
+
+    public int getBreite() {
+        return breite;
+    }
+
+    public void setBreite(int breite) {
+        if (breite <= 0){
+            breite = Math.abs(breite);
+        }
+        this.breite = breite;
+    }
+
+    public int getHoehe() {
+        return hoehe;
+    }
+
+    public void setHoehe(int hoehe) {
+        if (hoehe <= 0){
+            hoehe = Math.abs(hoehe);
+        }
+        this.hoehe = hoehe;
+    }
+
+    public String getFarbe() {
+        return farbe;
+    }
+
+    public void setFarbe(String farbe) {
+        this.farbe = farbe;
+    }
+
 }
