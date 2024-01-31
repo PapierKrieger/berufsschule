@@ -85,4 +85,16 @@ public class Rechteck {
         this.farbe = farbe;
     }
 
+    public double umfangBerechnen() {
+        return hoehe*2 + breite*2;
+    }
+
+    public boolean istQuadrat() {
+        return hoehe == breite;
+    }
+
+    public void vergroessern(int faktor) {
+        breite *= faktor;
+        hoehe *= faktor;
+    }
 }
