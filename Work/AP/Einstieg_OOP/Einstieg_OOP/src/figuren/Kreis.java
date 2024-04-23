@@ -11,6 +11,13 @@ public class Kreis {
         this.farbe = farbe;
     }
 
+    public Kreis() {
+        this.positionX = 100;
+        this.positionY = 100;
+        this.radius = 50;
+        this.farbe = "red";
+    }
+
     public int getPositionY() {
         return positionY;
     }
@@ -29,13 +36,6 @@ public class Kreis {
 
     public void setFarbe(String farbe) {
         this.farbe = farbe;
-    }
-
-    public Kreis() {
-        this.positionX = 100;
-        this.positionY = 100;
-        this.radius = 50;
-        this.farbe = "red";
     }
 
     public int getPositionX() {
