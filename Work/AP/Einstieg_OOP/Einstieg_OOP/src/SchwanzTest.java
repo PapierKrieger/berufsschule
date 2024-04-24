@@ -4,7 +4,8 @@ public class SchwanzTest {
     public static void main(String[] args) {
         Leinwand leinwand = new Leinwand();
 
-        Schwanz schwanz = new Schwanz(100, 100, 50, 100);
+        Schwanz schwanz = new Schwanz(100, 100, 50, 100, "rot");
         schwanz.drawDick(leinwand);
+        schwanz.extendRetract(schwanz, leinwand);
     }
 }
