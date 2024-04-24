@@ -34,7 +34,7 @@ public class Schwanz {
         return shaft.getHoehe();
     }
 
-    public void extendRetract(Schwanz schwanz, Leinwand leinwand) {
+    public void boingBoing(Schwanz schwanz, Leinwand leinwand) {
         int step = 5;
         int newShaftY, newShaftLength;
         boolean isErecting = true;

@@ -6,6 +6,6 @@ public class SchwanzTest {
 
         Schwanz schwanz = new Schwanz(100, 100, 50, 100, "rot");
         schwanz.drawDick(leinwand);
-        schwanz.extendRetract(schwanz, leinwand);
+        schwanz.boingBoing(schwanz, leinwand);
     }
 }
