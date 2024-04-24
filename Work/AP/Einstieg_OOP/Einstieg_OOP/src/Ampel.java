@@ -11,10 +11,8 @@ public class Ampel {
 
         this.gehaeuse = new Rechteck(positionX, positionY, "schwarz", breite, breite * 3);
 
-        this.gelberKreis = new Kreis(breite + (breite / 2), positionY + radius * 3, radius, "gelb");
-
         this.roterKreis = new Kreis(breite + (breite / 2), positionY + radius, radius, "rot");
-
+        this.gelberKreis = new Kreis(breite + (breite / 2), positionY + radius * 3, radius, "gelb");
         this.gruenerKreis = new Kreis(breite + (breite / 2), positionY + radius * 5, radius, "gruen");
     }
 
