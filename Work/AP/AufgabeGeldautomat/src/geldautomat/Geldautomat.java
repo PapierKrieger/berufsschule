@@ -3,7 +3,7 @@ public class Geldautomat {
 	
 	private GeldautomatZustand zustand;
 	private final String pin;
-	private double kontostand;
+	private final double kontostand;
 	public static final int ABHEBELIMIT = 2000;
 	
 	public static final String WILLKOMENSFESNTER_ANEZIGEN = "Willkommen, bitte Karte einstecken";
@@ -20,26 +20,35 @@ public class Geldautomat {
 	public static final String AUF_BESTAETIGUNG_WARTEN = "Bitte Betrag bestätigen";
 	public static final String UNGUELTIGE_AKTION = "Ungültige Aktion in diesem Zustand";
 	
-	private int auszuzahlenderBetrag;
+	private final int auszuzahlenderBetrag;
 	
 	
 	public Geldautomat(String pin, double kontostand) {
-		this.pin = new String(pin);
+		this.pin = pin;
 		this.kontostand = kontostand;
 		auszuzahlenderBetrag = 0;
 		//ToDo Teilaufgabe i)
-		
-		
+		zustand = GeldautomatZustand.AUF_KARTE_WARTEN;
+		//System.out.println(zustand.getText());
 	}
 
 	//ToDo Teilaufgabe ii)
 	public void karteEinstecken() {
-		
+		//if (zustand == AUF_KARTE_WARTEN) {
+		zustand = GeldautomatZustand.AUF_MENUEAUSWAHL_WARTEN;
+		menueauswahlAnzeigen();
 	}
 
 	//ToDo Teilaufgabe ii)
 	public void abbruch() {
-		
+		if (zustand != GeldautomatZustand.AUF_KARTE_WARTEN) {
+			karteAusgeben();
+			zustand = GeldautomatZustand.AUF_KARTE_WARTEN;
+			//willkommensfensterAnzeigen();
+		}
+		else {
+			ungueltigeAktion();
+		}
 	}
 	
 	//ToDo Teilaufgabe iii)
