@@ -1,0 +1,13 @@
+einfache Prüfsumme - Parität
+			Paritätsbit:
+01000000	[0]
+10011000	[1]
+10111101	[0]
+10010101	[0]
+
+11010000]
+
+Beispiel gerade Parität:
+Bildungsgesetz: Anzahl der 1er gerade
+quasi n if statement ob 1 oder 0 im Paritätsbit
+
