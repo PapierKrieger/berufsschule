@@ -1,6 +1,7 @@
 package geldautomat;
 public class Geldautomat {
-	
+
+	private Menuepunkt menuepunkt;
 	private GeldautomatZustand zustand;
 	private final String pin;
 	private final double kontostand;
@@ -28,15 +29,19 @@ public class Geldautomat {
 		this.kontostand = kontostand;
 		auszuzahlenderBetrag = 0;
 		//ToDo Teilaufgabe i)
+		willkommensfensterAnzeigen();
 		zustand = GeldautomatZustand.AUF_KARTE_WARTEN;
-		//System.out.println(zustand.getText());
 	}
 
 	//ToDo Teilaufgabe ii)
 	public void karteEinstecken() {
-		//if (zustand == AUF_KARTE_WARTEN) {
+		if (zustand == GeldautomatZustand.AUF_KARTE_WARTEN) {
 		zustand = GeldautomatZustand.AUF_MENUEAUSWAHL_WARTEN;
 		menueauswahlAnzeigen();
+	}
+		else {
+			ungueltigeAktion();
+		}
 	}
 
 	//ToDo Teilaufgabe ii)
@@ -44,7 +49,7 @@ public class Geldautomat {
 		if (zustand != GeldautomatZustand.AUF_KARTE_WARTEN) {
 			karteAusgeben();
 			zustand = GeldautomatZustand.AUF_KARTE_WARTEN;
-			//willkommensfensterAnzeigen();
+			willkommensfensterAnzeigen();
 		}
 		else {
 			ungueltigeAktion();
@@ -53,7 +58,12 @@ public class Geldautomat {
 	
 	//ToDo Teilaufgabe iii)
 	public void menuePunktAuswaehlen(Menuepunkt m) {
-		
+		pinAbfrageAnzeigen();
+		switch (m) {
+			case ABHEBEN -> geldAusgeben();
+			case KONTOAUSZUG_DRUCKEN -> kontoauszugDrucken();
+			case KONTOSTAND_ANEZIGEN -> kontostandfensterAnzeigen();
+		}
 	}
 
 	//ToDo Teilaufgabe iv)
@@ -71,7 +81,16 @@ public class Geldautomat {
 	}
 
 	private void kontoauszugDrucken() {
-		System.out.println(KONTOAUSZUG_DRUCKEN);
+		if (zustand == GeldautomatZustand.AUF_KARTE_WARTEN) {
+			ungueltigeAktion();
+			return;
+		}
+		else {
+			System.out.println(KONTOAUSZUG_DRUCKEN);
+			karteAusgeben();
+			zustand = GeldautomatZustand.AUF_KARTE_WARTEN;
+			willkommensfensterAnzeigen();
+		}
 	}
 
 	//ToDo Teilaufgabe v)
@@ -110,6 +129,7 @@ public class Geldautomat {
 	
 	private void pinAbfrageAnzeigen() {
 		System.out.println(PIN_ABFRAGE);
+		zustand = GeldautomatZustand.AUF_PIN_WARTEN;
 	}
 	
 	private void karteAusgeben() {
