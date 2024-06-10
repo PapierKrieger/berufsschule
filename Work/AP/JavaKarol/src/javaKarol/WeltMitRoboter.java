@@ -51,4 +51,65 @@ public class WeltMitRoboter {
 		welt.Speichern(dateiname);
 	}
 
+	public void roboterVorWandGehen() {
+		if (roboter.IstWand()) {
+			do {
+				roboterLinksDrehen();
+			}
+			while (roboter.IstWand());
+		}
+		else {
+			return;
+		}
+	}
+
+	public void roboterBisWandGehen() {
+		while (!roboter.IstWand()) {
+			roboterSchrittVorwärts();
+		}
+	}
+
+	public void roboterInStartPosition() {
+		if (roboter.IstBlickNorden()) {
+			roboterBisWandGehen();
+			roboterLinksDrehen();
+			roboterBisWandGehen();
+		}
+		else {
+			do {
+				roboterLinksDrehen();
+			}
+			while (!roboter.IstBlickWesten());
+			roboterBisWandGehen();
+			roboterRechtsDrehen();
+			roboterBisWandGehen();
+		}
+	}
+
+	public void roboterReiheZiegelsteineLegen() {
+		roboterBisWandGehen();
+		roboterRechtsDrehen();
+		roboterRechtsDrehen();
+		legeZiegelsteinUnterRoboter();
+		while (!roboter.IstWand()) {
+			roboterZiegelHinlegen();
+			roboterSchrittVorwärts();
+		}
+	}
+
+	private void legeZiegelsteinUnterRoboter(){
+		if (!roboter.IstWand()) {
+			roboterSchrittVorwärts();
+		}
+		else {
+			roboterRechtsDrehen();
+			roboterRechtsDrehen();
+		}
+		roboterRechtsDrehen();
+		roboterRechtsDrehen();
+		roboterZiegelHinlegen();
+		roboterSchrittVorwärts();
+		roboterRechtsDrehen();
+		roboterRechtsDrehen();
+	}
 }
