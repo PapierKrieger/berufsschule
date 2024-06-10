@@ -97,6 +97,27 @@ public class WeltMitRoboter {
 		}
 	}
 
+	public void roboterBautBunker() {
+		if (!roboter.IstWand()) {
+			roboterBisWandGehen();
+			roboterLinksDrehen();
+		}
+		while (true) {
+			if (roboter.IstWand()) {
+				roboterLinksDrehen();}
+			roboterZiegelHinlegen();
+			roboterSchrittVorwärts();
+		}
+	}
+
+	public void roboterIstFuckingFast(int speed) {
+		roboter.VerzoegerungSetzen(speed);
+		while (true) {
+			roboterBisWandGehen();
+			roboterLinksDrehen();
+		}
+	}
+
 	private void legeZiegelsteinUnterRoboter(){
 		if (!roboter.IstWand()) {
 			roboterSchrittVorwärts();
