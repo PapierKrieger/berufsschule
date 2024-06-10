@@ -5,7 +5,8 @@ public class Main {
 	public static void main(String[] args) {
 		WeltMitRoboter WeltMitRoboter = new WeltMitRoboter(5, 5, 5);
 
-		WeltMitRoboter.roboterIstFuckingFast(10);
+		WeltMitRoboter.roboterBautBunker();
+		WeltMitRoboter.roboterIstFuckingFast(50);
 	}
 
 }

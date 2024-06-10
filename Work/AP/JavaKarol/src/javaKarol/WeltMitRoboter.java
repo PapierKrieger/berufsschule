@@ -69,7 +69,7 @@ public class WeltMitRoboter {
 		}
 	}
 
-	public void roboterInStartPosition() {
+	public boolean roboterInStartPosition() {
 		if (roboter.IstBlickNorden()) {
 			roboterBisWandGehen();
 			roboterLinksDrehen();
@@ -84,6 +84,7 @@ public class WeltMitRoboter {
 			roboterRechtsDrehen();
 			roboterBisWandGehen();
 		}
+		return false;
 	}
 
 	public void roboterReiheZiegelsteineLegen() {
@@ -98,15 +99,11 @@ public class WeltMitRoboter {
 	}
 
 	public void roboterBautBunker() {
-		if (!roboter.IstWand()) {
-			roboterBisWandGehen();
-			roboterLinksDrehen();
-		}
-		while (true) {
-			if (roboter.IstWand()) {
-				roboterLinksDrehen();}
-			roboterZiegelHinlegen();
-			roboterSchrittVorwärts();
+		int weltHöhe = welt.getWeltHoehe() - 1;
+		int counter = 0;
+		while (counter < weltHöhe) {
+		roboterBautMauerAußen();
+		counter++;
 		}
 	}
 
@@ -132,5 +129,25 @@ public class WeltMitRoboter {
 		roboterSchrittVorwärts();
 		roboterRechtsDrehen();
 		roboterRechtsDrehen();
+	}
+
+	private void roboterBautMauerAußen() {
+		for (int counter = 0; counter < 4; counter++) {
+			while (!roboter.IstWand()) {
+				roboterZiegelHinlegen();
+				roboterSchrittVorwärts();
+			}
+			roboterLinksDrehen();
+		}
+
+
+		// build one row of bricks
+		// turn 90°
+		// build next line of bricks
+		// turn 90°
+		// build 3rd line of bricks
+		// turn again
+		// build last line of bricks
+		// gotta make sure that the operation results in the robot being one brick higher than previously, then increment height by 1
 	}
 }
