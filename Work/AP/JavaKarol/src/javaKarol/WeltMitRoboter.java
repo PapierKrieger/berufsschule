@@ -87,6 +87,20 @@ public class WeltMitRoboter {
 		return false;
 	}
 
+	public void roboterDurchSumpfLaufen() {
+		while (true) {
+			if (roboter.IstZiegel()) {
+				roboterSchrittVorwärts();
+			}
+			else if (roboter.IstZiegelRechts()) {
+				roboterRechtsDrehen();
+			}
+			else if (roboter.IstZiegelLinks()) {
+				roboterLinksDrehen();
+			}
+		}
+	}
+
 	public void roboterReiheZiegelsteineLegen() {
 		roboterBisWandGehen();
 		roboterRechtsDrehen();
