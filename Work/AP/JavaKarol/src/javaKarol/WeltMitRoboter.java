@@ -11,7 +11,7 @@ public class WeltMitRoboter {
 	public WeltMitRoboter(int breite, int laenge, int hoehe) {
 		welt = new Welt(breite, laenge, hoehe);
 		roboter = new Roboter(welt);
-//		roboter.VerzoegerungSetzen(10);
+		roboter.VerzoegerungSetzen(0);
 	}
 	                
 	public WeltMitRoboter(String absoluterDateipfad) {
@@ -107,6 +107,15 @@ public class WeltMitRoboter {
 		}
 	}
 
+	public void roboterBautBunkerAb() {
+		int weltHöhe = welt.getWeltHoehe() - 1;
+		int counter = weltHöhe;
+		while (counter >= 1) {
+			roboterBautMauerAußenAb();
+			counter--;
+		}
+	}
+
 	public void roboterIstFuckingFast(int speed) {
 		roboter.VerzoegerungSetzen(speed);
 		while (true) {
@@ -135,6 +144,16 @@ public class WeltMitRoboter {
 		for (int counter = 0; counter < 4; counter++) {
 			while (!roboter.IstWand()) {
 				roboterZiegelHinlegen();
+				roboterSchrittVorwärts();
+			}
+			roboterLinksDrehen();
+		}
+	}
+
+	private void roboterBautMauerAußenAb() {
+		for (int counter = 0; counter < 4; counter++) {
+			while (!roboter.IstWand()) {
+				roboterZiegelAufheben();
 				roboterSchrittVorwärts();
 			}
 			roboterLinksDrehen();
