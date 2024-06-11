@@ -138,6 +138,30 @@ public class WeltMitRoboter {
 		}
 	}
 
+	public void roboterHoltZeitung() {
+		while (!roboter.IstBlickSueden()) {
+			roboterLinksDrehen();
+		}
+		while (!roboter.IstMarke() && !roboter.IstZiegel()) {
+			roboterSchrittVorwärts();
+		}
+		if (roboter.IstZiegel()){
+			roboterLinksDrehen();
+		}
+		while (roboter.IstZiegelRechts()) {
+			if (roboter.IstZiegel()){
+				roboterLinksDrehen();
+			}
+			roboterSchrittVorwärts();
+		}
+		if (!roboter.IstZiegelRechts()){
+			roboterRechtsDrehen();
+		}
+		while (!roboter.IstMarke()){
+			roboterSchrittVorwärts();
+		}
+	}
+
 	private void legeZiegelsteinUnterRoboter(){
 		if (!roboter.IstWand()) {
 			roboterSchrittVorwärts();
