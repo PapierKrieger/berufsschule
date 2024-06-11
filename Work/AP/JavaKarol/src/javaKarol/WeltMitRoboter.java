@@ -139,15 +139,5 @@ public class WeltMitRoboter {
 			}
 			roboterLinksDrehen();
 		}
-
-
-		// build one row of bricks
-		// turn 90°
-		// build next line of bricks
-		// turn 90°
-		// build 3rd line of bricks
-		// turn again
-		// build last line of bricks
-		// gotta make sure that the operation results in the robot being one brick higher than previously, then increment height by 1
 	}
 }
