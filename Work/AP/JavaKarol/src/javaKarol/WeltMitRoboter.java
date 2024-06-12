@@ -98,6 +98,9 @@ public class WeltMitRoboter {
 			else if (roboter.IstZiegelLinks()) {
 				roboterLinksDrehen();
 			}
+			else {
+				roboterLinksDrehen();
+			}
 		}
 	}
 
