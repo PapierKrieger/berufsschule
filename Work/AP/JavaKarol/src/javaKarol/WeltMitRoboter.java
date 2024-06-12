@@ -200,4 +200,29 @@ public class WeltMitRoboter {
 			roboterLinksDrehen();
 		}
 	}
+
+	public void roboterPlastertBoden() {
+		// todo: increase efficiency
+		while (true){
+			if (roboter.IstWand()) {
+				roboterLinksDrehen();
+			}
+			else if (!roboter.IstZiegel() && !roboter.IstWand()) {
+				roboterZiegelHinlegen();
+				roboter.Schritt();
+			}
+			else if (roboter.IstZiegelRechts() && roboter.IstZiegelLinks() && roboter.IstZiegel()) {
+				roboter.Schritt();
+			}
+			else if (roboter.IstZiegel()) {
+				if (roboter.IstZiegel() && roboter.IstZiegelLinks() || roboter.IstZiegelLinks()) {
+					roboterLinksDrehen();
+					roboter.Schritt();
+				}
+				else {
+					roboterLinksDrehen();
+				}
+			}
+		}
+	}
 }
