@@ -181,7 +181,7 @@ public class WeltMitRoboter {
 		roboterRechtsDrehen();
 	}
 
-	private void roboterBautMauerAußen() {
+	public void roboterBautMauerAußen() {
 		for (int counter = 0; counter < 4; counter++) {
 			while (!roboter.IstWand()) {
 				roboterZiegelHinlegen();
@@ -191,7 +191,7 @@ public class WeltMitRoboter {
 		}
 	}
 
-	private void roboterBautMauerAußenAb() {
+	public void roboterBautMauerAußenAb() {
 		for (int counter = 0; counter < 4; counter++) {
 			while (!roboter.IstWand()) {
 				roboterZiegelAufheben();
