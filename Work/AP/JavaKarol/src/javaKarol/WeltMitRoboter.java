@@ -11,7 +11,7 @@ public class WeltMitRoboter {
 	public WeltMitRoboter(int breite, int laenge, int hoehe) {
 		welt = new Welt(breite, laenge, hoehe);
 		roboter = new Roboter(welt);
-		roboter.VerzoegerungSetzen(0);
+		//roboter.VerzoegerungSetzen(50);
 	}
 	                
 	public WeltMitRoboter(String absoluterDateipfad) {
