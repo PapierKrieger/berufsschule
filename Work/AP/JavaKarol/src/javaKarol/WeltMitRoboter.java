@@ -11,7 +11,7 @@ public class WeltMitRoboter {
 	public WeltMitRoboter(int breite, int laenge, int hoehe) {
 		welt = new Welt(breite, laenge, hoehe);
 		roboter = new Roboter(welt);
-		//roboter.VerzoegerungSetzen(50);
+		//roboter.VerzoegerungSetzen(0);
 	}
 	                
 	public WeltMitRoboter(String absoluterDateipfad) {
@@ -104,7 +104,7 @@ public class WeltMitRoboter {
 		}
 	}
 
-	public void roboterReiheZiegelsteineLegen() {
+	public void roboterZiegelReiheLegen() {
 		roboterBisWandGehen();
 		roboterRechtsDrehen();
 		roboterRechtsDrehen();
@@ -113,6 +113,10 @@ public class WeltMitRoboter {
 			roboterZiegelHinlegen();
 			roboterSchrittVorwärts();
 		}
+	}
+
+	public void roboterZiegelReiheLegen(int anzahl) {
+
 	}
 
 	public void roboterBautBunker() {
@@ -201,8 +205,8 @@ public class WeltMitRoboter {
 		}
 	}
 
-	public void roboterPlastertBoden() {
-		// todo: increase efficiency
+	public void roboterPflastertBoden() {
+		// todo: increase efficiency: switch-case IstZiegel() and within the other conditions
 		while (true){
 			if (roboter.IstWand()) {
 				roboterLinksDrehen();
@@ -222,6 +226,24 @@ public class WeltMitRoboter {
 				else {
 					roboterLinksDrehen();
 				}
+			}
+		}
+	}
+
+	public void schatzsuche(){
+		while (true) {
+			if (roboter.IstMarke()) {
+				while (true){
+					roboterLinksDrehen();
+				}
+			}
+				if (!roboter.IstZiegelRechts()) {
+					roboterRechtsDrehen();
+					roboter.Schritt();
+			} else if (!roboter.IstZiegel()) {
+				roboter.Schritt();
+			} else {
+				roboterLinksDrehen();
 			}
 		}
 	}

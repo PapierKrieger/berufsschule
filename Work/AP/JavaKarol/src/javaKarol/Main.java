@@ -3,12 +3,9 @@ package javaKarol;
 public class Main {
 	
 	public static void main(String[] args) {
-		WeltMitRoboter WeltMitRoboter = new WeltMitRoboter(5, 5, 5);
+		WeltMitRoboter WeltMitRoboter = new WeltMitRoboter(10, 10, 5);
 
-		while (true) {
-			WeltMitRoboter.roboterBautBunker();
-			WeltMitRoboter.roboterBautBunkerAb();
-		}
+		WeltMitRoboter.schatzsuche();
 	}
 
 }
