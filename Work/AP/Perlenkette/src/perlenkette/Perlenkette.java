@@ -67,7 +67,7 @@ public class Perlenkette {
         kette[0].setPositionX(xPos);
         for (int i = 1; i <= kette.length; i++) {
             kette[i].setPositionY(yPos);
-            
+
         }
 	}
 }
