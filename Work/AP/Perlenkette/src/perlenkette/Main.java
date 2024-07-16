@@ -8,8 +8,15 @@ public class Main {
 		Perlenkette p = new Perlenkette();
 		Leinwand l = new Leinwand();
 		p.zeichne(l);
-		p.farbeSetzen("gelb");
+		l.warte(1000);
+
+		p.farbeSetzen("rot", "orange", "blau");
 		p.zeichne(l);
+		l.warte(1000);
+
+		p.spiegeln();
+		p.zeichne(l);
+		l.warte(1000);
 	}
 
 }
